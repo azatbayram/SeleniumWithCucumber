@@ -32,7 +32,7 @@ public class Driver {
         if (driverPool.get() == null) {
 //            if we pass the driver from terminal then use that one
 //           if we do not pass the driver from terminal then use the one properties file
-            String browser = System.getProperty("browser") != null ? browser = System.getProperty("browser") : com.vytrack.utilities.ConfigurationReader.get("browser");
+            String browser = System.getProperty("browser") != null ? browser = System.getProperty("browser") : ConfigurationReader.get("browser");
             switch (browser) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
