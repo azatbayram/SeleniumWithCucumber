@@ -11,10 +11,10 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import sun.plugin2.util.BrowserType;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -65,7 +65,7 @@ public class Driver {
                 case "safari":
                     if (!System.getProperty("os.name").toLowerCase().contains("mac"))
                         throw new WebDriverException("Your OS doesn't support Safari");
-                    WebDriverManager.getInstance(SafariDriver.class).setup();
+                    WebDriverManager.safaridriver().setup();
                     driverPool.set(new SafariDriver());
                     break;
                 case "remote_chrome":
@@ -80,10 +80,10 @@ public class Driver {
                 case "mobile_chrome":
                     DesiredCapabilities desiredCapabilities=new DesiredCapabilities();
                     desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.ANDROID);
-                    desiredCapabilities.setCapability(MobileCapabilityType.VERSION, "8.0");
+                    desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.0");
                     desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_2");
                     desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-                    desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, BrowserType.CHROME);
+                    desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, BrowserType.DEFAULT);
 
                     try {
                         driverPool.set(new RemoteWebDriver(new URL("http://localhost:4723/wd/hub"),desiredCapabilities));

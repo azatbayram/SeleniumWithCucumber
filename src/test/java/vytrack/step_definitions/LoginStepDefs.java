@@ -29,4 +29,37 @@ public class LoginStepDefs {
         String actualTitle = Driver.get().getTitle();
         Assert.assertEquals("Dashboard", actualTitle);
     }
+
+    @When("the user enters the sales manager information")
+    public void the_user_enters_the_sales_manager_information() throws InterruptedException {
+        String username = ConfigurationReader.get("sales_manager_username");
+        String password = ConfigurationReader.get("sales_manager_password");
+
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(username,password);
+
+    }
+
+    @When("the user enters the store manager information")
+    public void the_user_enters_the_store_manager_information() {
+        String username = ConfigurationReader.get("store_manager_username");
+        String password = ConfigurationReader.get("store_manager_password");
+
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(username,password);
+    }
+
+    @When("the user logs in using {string} and {string}")
+    public void the_user_logs_in_using_and(String username, String password) {
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(username,password);
+    }
+
+    @Then("the title contains {string}")
+    public void the_title_contains(String expectedTitle) {
+        System.out.println("expectedTitle = " + expectedTitle);
+        BrowserUtils.waitFor(2);
+        Assert.assertTrue(Driver.get().getTitle().contains(expectedTitle));
+
+    }
 }
