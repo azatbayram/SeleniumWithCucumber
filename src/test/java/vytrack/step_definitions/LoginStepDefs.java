@@ -23,6 +23,7 @@ public class LoginStepDefs {
         LoginPage loginPage = new LoginPage();
         loginPage.login(username, password);
     }
+
     @Then("the user should be able to login")
     public void the_user_should_be_able_to_login() {
         BrowserUtils.waitFor(3);
@@ -36,7 +37,7 @@ public class LoginStepDefs {
         String password = ConfigurationReader.get("sales_manager_password");
 
         LoginPage loginPage = new LoginPage();
-        loginPage.login(username,password);
+        loginPage.login(username, password);
 
     }
 
@@ -46,20 +47,19 @@ public class LoginStepDefs {
         String password = ConfigurationReader.get("store_manager_password");
 
         LoginPage loginPage = new LoginPage();
-        loginPage.login(username,password);
+        loginPage.login(username, password);
     }
 
-    @When("the user logs in using {string} and {string}")
-    public void the_user_logs_in_using_and(String username, String password) {
+    @When("the user logs in {string} and {string}")
+    public void the_user_logs_in_and(String username, String password) {
         LoginPage loginPage = new LoginPage();
-        loginPage.login(username,password);
+        loginPage.login(username, password);
     }
 
-    @Then("the title contains {string}")
-    public void the_title_contains(String expectedTitle) {
-        System.out.println("expectedTitle = " + expectedTitle);
-        BrowserUtils.waitFor(2);
+    @Then("the title should contains {string}")
+    public void the_title_should_contains(String expectedTitle) {
+        BrowserUtils.waitFor(3);
         Assert.assertTrue(Driver.get().getTitle().contains(expectedTitle));
-
     }
+
 }
