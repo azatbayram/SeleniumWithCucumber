@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "vytrack/step_definitions",
         dryRun = false,
+        strict = true,
         tags = " @wip"
 )
 public class CukesRunner {
