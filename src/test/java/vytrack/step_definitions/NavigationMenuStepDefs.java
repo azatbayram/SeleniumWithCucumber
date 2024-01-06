@@ -41,6 +41,19 @@ public class NavigationMenuStepDefs {
         System.out.println("Expected and Actual title are matching");
     }
 
+    @When("the usr navigates to {string} {string}")
+    public void the_usr_navigates_to(String tab, String module) {
+        new DashboardPage().navigateToModule(tab, module);
+    }
+
+    @Then("the deafult page number should be {int}")
+    public void the_deafult_page_number_should_be(Integer expectedPageNum) {
+        BrowserUtils.waitFor(3);
+        ContactsPage contactsPage = new ContactsPage();
+        Integer actualPageNum = Integer.parseInt(contactsPage.pageNumber.getAttribute("value"));
+        Assert.assertEquals(expectedPageNum, actualPageNum);
+    }
+
 
 
 
