@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "vytrack/step_definitions",
         dryRun = false,
-        tags = " @sales_manager"
+        tags = " @login"
 )
 public class CukesRunner {
 }
