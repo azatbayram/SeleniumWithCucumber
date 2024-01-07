@@ -2,10 +2,13 @@ package vytrack.step_definitions;
 
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import vytrack.pages.DashboardPage;
 import vytrack.pages.LoginPage;
 import vytrack.utilities.BrowserUtils;
 import vytrack.utilities.ConfigurationReader;
 import vytrack.utilities.Driver;
+
+import java.util.Map;
 
 public class LoginStepDefs {
 
@@ -83,6 +86,18 @@ public class LoginStepDefs {
         BrowserUtils.waitFor(1);
         //send username and password and login
         new LoginPage().login(username,password);
+    }
+
+    @When("the user logs in using following credentials")
+    public void the_user_logs_in_using_following_credentials(Map<String, String> userInfo) {
+        BrowserUtils.waitFor(1);
+        new LoginPage().login(userInfo.get("username"), userInfo.get("password"));
+
+        String actualName = new DashboardPage().getUserName();
+        String expectedName = userInfo.get("firstname")+" "+userInfo.get("lastname");
+
+        Assert.assertEquals(expectedName, actualName);
+
     }
 
 
