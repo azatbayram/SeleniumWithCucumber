@@ -46,8 +46,8 @@ public class NavigationMenuStepDefs {
         new DashboardPage().navigateToModule(tab, module);
     }
 
-    @Then("the deafult page number should be {int}")
-    public void the_deafult_page_number_should_be(Integer expectedPageNum) {
+    @Then("the default page number should be {int}")
+    public void the_default_page_number_should_be(Integer expectedPageNum) {
         BrowserUtils.waitFor(2);
         ContactsPage contactsPage = new ContactsPage();
         Integer actualPageNum = Integer.parseInt(contactsPage.pageNumber.getAttribute("value"));
