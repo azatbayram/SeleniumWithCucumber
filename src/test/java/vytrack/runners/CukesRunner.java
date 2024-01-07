@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
                 "html:target/default-html-reports"},
         features = "src/test/resources/features",
         glue = "vytrack/step_definitions",
-        dryRun = true,
+        dryRun = false,
         strict = true,
         tags = " @wip"
 )
