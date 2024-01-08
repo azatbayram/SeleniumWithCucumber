@@ -13,7 +13,7 @@ Feature: Login as different users
     And the title should contains "Dashboard"
     #driver,storemanager,salesmanager
    #you will have one step definition and it will handle differnet usertypes
-@wip
+
   Scenario: Login as given user
     Given the user is on the login page
     When the user logs in using following credentials

@@ -41,8 +41,8 @@ public class NavigationMenuStepDefs {
         System.out.println("Expected and Actual title are matching");
     }
 
-    @When("the usr navigates to {string} {string}")
-    public void the_usr_navigates_to(String tab, String module) {
+    @When("the user navigates to {string} {string}")
+    public void the_user_navigates_to(String tab, String module) {
         new DashboardPage().navigateToModule(tab, module);
     }
 
