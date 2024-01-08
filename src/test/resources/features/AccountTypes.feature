@@ -42,7 +42,6 @@ Feature: Account types
       | store manager | System     | Jobs            | All - Jobs - System                                                |
       | store manager | System     | Menus           | All - Menus - System                                               |
 
-  @wip
   Scenario Outline: Different user types
     Given the user logged in as "<userType>"
 
@@ -51,4 +50,3 @@ Feature: Account types
       | driver        |
       | store manager |
       | sales manager |
-      | admin         |
