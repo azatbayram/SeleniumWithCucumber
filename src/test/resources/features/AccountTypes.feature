@@ -51,3 +51,4 @@ Feature: Account types
       | driver        |
       | store manager |
       | sales manager |
+      | admin         |
