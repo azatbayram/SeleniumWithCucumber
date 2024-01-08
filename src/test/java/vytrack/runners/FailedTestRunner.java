@@ -10,5 +10,5 @@ import org.junit.runner.RunWith;
         features = "@target/rerun.txt",
         glue = "vytrack/step_definitions"
 )
-public class FailedTestRunner {
+public class  FailedTestRunner {
 }
