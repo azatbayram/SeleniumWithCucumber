@@ -14,14 +14,14 @@ Feature: Account types
     Given the user logged in as "store manager"
     When the user navigates to "Customers" "Contacts"
     Then the title should contains "Contacts - Customers"
-   @wip
-  Scenario Outline: Login with different accounts <userType>
+
+
+  Scenario Outline: Login with different accounts
     Given the user logged in as "<userType>"
     When the user navigates to "<tab>" "<module>"
     Then the title should contains "<title>"
 
     Examples:
-
       | userType      | tab        | module          | title                                                              |
       | driver        | Fleet      | Vehicles Model  | Vehicles Model - Entities - System - Car - Entities - System       |
       | driver        | Customers  | Accounts        | Accounts - Customers                                               |
@@ -40,4 +40,14 @@ Feature: Account types
       | store manager | Customers  | Contacts        | All - Contacts - Customers                                         |
       | store manager | Activities | Calendar Events | All - Calendar Events - Activities                                 |
       | store manager | System     | Jobs            | All - Jobs - System                                                |
-      | store manager | System     | Menus           | All - Menus - System
+      | store manager | System     | Menus           | All - Menus - System                                               |
+
+  @wip
+  Scenario Outline: Different user types
+    Given the user logged in as "<userType>"
+
+    Examples:
+      | userType      |
+      | driver        |
+      | store manager |
+      | sales manager |
