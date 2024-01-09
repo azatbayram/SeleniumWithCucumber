@@ -1,6 +1,5 @@
 package vytrack.utilities;
 
-import io.appium.java_client.remote.MobileCapabilityType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
@@ -11,10 +10,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import sun.plugin2.util.BrowserType;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -77,21 +74,6 @@ public class Driver {
                         e.printStackTrace();
                     }
                     break;
-                case "mobile_chrome":
-                    DesiredCapabilities desiredCapabilities=new DesiredCapabilities();
-                    desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.ANDROID);
-                    desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.0");
-                    desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_2");
-                    desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-                    desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, BrowserType.DEFAULT);
-
-                    try {
-                        driverPool.set(new RemoteWebDriver(new URL("http://localhost:4723/wd/hub"),desiredCapabilities));
-
-                    } catch (MalformedURLException e){
-                        e.printStackTrace();
-                    }
-
 
             }
         }
