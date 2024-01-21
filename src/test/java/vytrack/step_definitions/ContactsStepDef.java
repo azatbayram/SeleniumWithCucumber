@@ -1,6 +1,7 @@
 package vytrack.step_definitions;
 
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import vytrack.pages.DashboardPage;
 import vytrack.utilities.BrowserUtils;
@@ -19,4 +20,16 @@ public class ContactsStepDef {
         System.out.println("actualOptions = " + actualOptions);
 
     }
+
+    @When("the user clicks the {string} from contacts")
+    public void the_user_clicks_the_from_contacts(String email) {
+
+    }
+
+    @Then("the information should be same with database")
+    public void the_information_should_be_same_with_database() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
 }
