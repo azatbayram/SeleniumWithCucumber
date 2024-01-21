@@ -33,3 +33,9 @@ Feature: Contacts Page
       | Marketing          |
       | Reports & Segments |
       | System             |
+
+
+  Scenario: Contacts test with email
+    Given the user logged in as "sales manager"
+    And the user navigates to "Customers" "Contacts"
+    When the user clicks the "email" from contacts
